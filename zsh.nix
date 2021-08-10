@@ -26,7 +26,6 @@
       size = "du -sh";
       mkdir = "mkdir -p";
       df = "df -h";
-      git = "git status";
     };
 
     plugins = [
