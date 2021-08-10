@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }: {
-  imports = [ ./zsh.nix ];
+  imports = [ ./git.nix ./vim ./zsh.nix ];
 
   home = { stateVersion = "21.11"; };
 

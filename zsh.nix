@@ -22,6 +22,13 @@
       gpgconf --launch gpg-agent
     '';
 
+    shellAliases = {
+      size = "du -sh";
+      mkdir = "mkdir -p";
+      df = "df -h";
+      git = "git status";
+    };
+
     plugins = [
       {
         name = "fast-syntax-highlighting";
