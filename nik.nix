@@ -1,4 +1,5 @@
 { config, pkgs, lib, ... }: {
+  imports = [ ./zsh.nix ];
 
   home = { stateVersion = "21.11"; };
 
