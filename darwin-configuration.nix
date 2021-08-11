@@ -35,7 +35,7 @@ in {
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.nik = import ./nik.nix;
+    users.nik = import ./home-manager/home.nix;
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
