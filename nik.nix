@@ -1,7 +1,20 @@
 { config, pkgs, lib, ... }: {
   imports = [ ./git.nix ./vim ./zsh.nix ];
 
-  home = { stateVersion = "21.11"; };
+  home = {
+    stateVersion = "21.11";
+    packages = with pkgs; [
+      ansible
+      drone-cli
+      glances
+      gradle
+      hugo
+      iperf
+      nmap
+      wget
+      wakeonlan
+    ];
+  };
 
   programs = {
     # let home-manager manage itself
