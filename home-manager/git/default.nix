@@ -3,7 +3,7 @@
     git = {
       enable = true;
 
-      ignores = [ "tags" "*.swp" ];
+      ignores = [ "tags" "*.swp" "*.DS_Store" ];
 
       extraConfig = { pull.rebase = false; };
 
