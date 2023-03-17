@@ -14,29 +14,32 @@
 
   outputs = { self, ... }@inputs:
     with inputs;
-    let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
     {
-      homeConfigurations.nik = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          {
-            nixpkgs = {
-              overlays = [
-                (self: super: {
-                  whisper_cli = whisper_api.packages.${system}.whisper_cli;
-                })
-              ];
-              config = { allowUnfree = true; };
-            };
-          }
-          ./home.nix
-        ];
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-        extraSpecialArgs = { } // inputs;
-      };
+
+      homeConfigurations."nik@MacBook-Pro-14-2021" =
+        let
+          system = "aarch64-darwin";
+          pkgs = import nixpkgs { inherit system; };
+        in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            {
+              nixpkgs = {
+                overlays = [
+                  (self: super: {
+                    whisper_cli = whisper_api.packages.${system}.whisper_cli;
+                  })
+                ];
+                config = { allowUnfree = true; };
+              };
+            }
+            ./home.nix
+          ];
+          # Optionally use extraSpecialArgs
+          # to pass through arguments to home.nix
+          extraSpecialArgs = { } // inputs;
+        };
+
     };
 }
