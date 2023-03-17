@@ -16,10 +16,13 @@ Since my primary laptop is a MacBook, I have decided to give home manager a try 
 
 ```bash
 # build /check configuration
-nix build .#homeConfigurations.nik.activation-script 
+nix build .#homeConfigurations.nik@MacBook-Pro-14-2021.activationPackage
 
-# switch to new configuration
-nix run .#homeConfigurations.nik.activationPackage
+# initialize configuration
+nix run .#homeConfigurations.nik@MacBook-Pro-14-2021.activationPackage
+
+# rebuild configuration
+home-manager switch --flake .
 
 # basic flake check
 nix flake check
