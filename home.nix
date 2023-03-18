@@ -14,15 +14,21 @@
     # network tools
     iperf
     nmap
+    speedtest-cli
     wakeonlan
 
     # devops tools
     ansible
     glances
+    glances
     hugo
+    terraform
     wget
 
     # dev tools
+    asciinema
+    go
+    pre-commit
     rpiboot
   ];
 
