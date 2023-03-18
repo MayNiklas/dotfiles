@@ -11,14 +11,20 @@
     # nix tools
     nixpkgs-fmt
 
+    # communication tools
+    discord
+    element-desktop
+
     # network tools
     iperf
     nmap
     speedtest-cli
     wakeonlan
+    wireshark
 
     # devops tools
     ansible
+    ansible-lint
     glances
     glances
     hugo
@@ -30,6 +36,7 @@
     go
     pre-commit
     rpiboot
+    texlive.combined.scheme-full
   ];
 
   programs.command-not-found.enable = true;
