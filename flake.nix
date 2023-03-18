@@ -19,21 +19,22 @@
       homeConfigurations."nik@MacBook-Pro-14-2021" =
         let
           system = "aarch64-darwin";
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs {
+            inherit system;
+            config = {
+              allowUnfree = true;
+            };
+            overlays = [
+              (self: super: {
+                whisper_cli = whisper_api.packages.${system}.whisper_cli;
+              })
+            ];
+          };
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            {
-              nixpkgs = {
-                overlays = [
-                  (self: super: {
-                    whisper_cli = whisper_api.packages.${system}.whisper_cli;
-                  })
-                ];
-                config = { allowUnfree = true; };
-              };
-            }
+            { }
             ./home.nix
           ];
           # Optionally use extraSpecialArgs
