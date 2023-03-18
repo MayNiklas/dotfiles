@@ -21,6 +21,9 @@
     glances
     hugo
     wget
+
+    # dev tools
+    rpiboot
   ];
 
   programs.command-not-found.enable = true;
