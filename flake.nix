@@ -2,14 +2,21 @@
   description = "Home Manager configuration of Nik";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    whisper_api.url = "github:MayNiklas/whisper_api";
+    whisper_api = {
+      url = "github:MayNiklas/whisper_api";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { self, ... }@inputs:
