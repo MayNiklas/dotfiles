@@ -39,6 +39,61 @@
     texlive.combined.scheme-full
   ];
 
+  programs = {
+    git = {
+      enable = true;
+      ignores = [
+        "tags"
+        "*.swp"
+        # Nix builds
+        "result"
+        # Core latex/pdflatex auxiliary files
+        "*.aux"
+        "*.lof"
+        "*.log"
+        "*.lot"
+        "*.fls"
+        "*.out"
+        "*.toc"
+        "*.fmt"
+        "*.fot"
+        "*.cb"
+        "*.cb2"
+        ".*.lb"
+        # Python
+        "__pycache__/"
+        "*.py[cod]"
+        "*$py.class"
+        ".Python"
+        "build/"
+        "develop-eggs/"
+        "dist/"
+      ];
+      extraConfig = { pull.rebase = false; };
+      userEmail = "info@niklas-steffen.de";
+      userName = "MayNiklas";
+    };
+  };
+
+  programs.htop = {
+    enable = true;
+    settings = {
+      cpu_count_from_one = 1;
+      show_cpu_usage = true;
+      show_program_path = true;
+      fields = with config.lib.htop.fields; [
+        PID
+        USER
+        M_RESIDENT
+        M_SHARE
+        PERCENT_CPU
+        PERCENT_MEM
+        TIME
+        COMM
+      ];
+    };
+  };
+
   programs.command-not-found.enable = true;
 
   # Include man-pages
