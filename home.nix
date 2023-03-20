@@ -12,8 +12,10 @@
     nixpkgs-fmt
 
     # communication tools
-    discord
-    element-desktop
+    # -> when installing those through nix,
+    # spotlight can't fint them
+    # discord
+    # element-desktop
 
     # network tools
     iperf
